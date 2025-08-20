@@ -14,26 +14,21 @@ A Chrome extension that captures audio from the current tab, streams/transcribes
 
 ---
 
-## 🧱 Project Structure
-Google Project
-### manifest.json # MV3 manifest (permissions, side_panel, service worker)
-### service-worker.js # Opens the side panel on toolbar click
-### sidepanel.html # UI scaffold for the side panel
-### sidepanel.css # Panel styles
-### sidepanel.js # Core logic (capture, chunk, transcribe, export)
+## 🧱 Project 
+
+
 
 ---
 
 ## 🚀 Quick Start
 
-### 1) Get a Google API Key (Gemini)
-1. Go to https://aistudio.google.com/apikey (or the current Gemini API key page) and create a key.
-2. Copy your API key — you will paste it into the side panel later.
+### 1)  You can use the Google Project.zip from the releases:
+Download it from here.
 
 ### 2) Load the Extension Locally
 1. Open **chrome://extensions** in Chrome.
 2. Enable **Developer mode** (top-right).
-3. Click **Load unpacked** and choose the folder containing these files.
+3. Click **Load unpacked** and choose the \extension folder.
 
 > On first run, click the extension icon in the toolbar to open the **Side Panel**.
 
