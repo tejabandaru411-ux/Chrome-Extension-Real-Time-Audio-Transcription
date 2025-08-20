@@ -27,7 +27,6 @@ A Chrome extension that captures audio from the current tab, streams/transcribes
 
 
 ## 🚀 Quick Start
-
 ### 1)  You can use the Google Project.zip from the releases:
 Download it from here.
 
