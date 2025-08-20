@@ -26,14 +26,6 @@ A Chrome extension that captures audio from the current tab, streams/transcribes
   -icon16.png
 
 
-manifest.json — MV3 manifest; permissions; sidepanel entry; service worker.
-
-service-worker.js — Opens sidepanel; can help orchestrate background tasks.
-
-sidepanel.html / sidepanel.css — UI layout and styles.
-
-sidepanel.js — Capture manager, chunking, provider calls, retries, exports.
-
 ## 🚀 Quick Start
 
 ### 1)  You can use the Google Project.zip from the releases:
