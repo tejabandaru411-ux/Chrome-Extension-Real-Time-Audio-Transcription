@@ -61,7 +61,7 @@ A Chrome extension that captures audio from the current tab, streams/transcribes
 5. Stop recording → *Export transcript*.
 
 ## Demo Video
-[Download or watch demo]()
+[Download or watch demo](https://github.com/tejabandaru411-ux/Chrome-Extension-Real-Time-Audio-Transcription/blob/main/demo_video.mp4)
 
 # Architecture & Data Flow
 
