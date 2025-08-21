@@ -18,7 +18,7 @@ A Chrome extension that captures audio from the current tab, streams/transcribes
 ### -/extension
 - [manifest.json](https://github.com/tejabandaru411-ux/Chrome-Extension-Real-Time-Audio-Transcription/blob/main/manifest.json): MV3 manifest; permissions; sidepanel entry; service worker.
 - [service-worker.js](https://github.com/tejabandaru411-ux/Chrome-Extension-Real-Time-Audio-Transcription/blob/main/service-worker.js): Opens sidepanel; can help orchestrate background tasks.
-- [sidepanel.html] (https://github.com/tejabandaru411-ux/Chrome-Extension-Real-Time-Audio-Transcription/blob/main/sidepanel.html)/ sidepanel.css: UI layout and styles.
+- [sidepanel.html](https://github.com/tejabandaru411-ux/Chrome-Extension-Real-Time-Audio-Transcription/blob/main/sidepanel.html)/ sidepanel.css: UI layout and styles.
 - sidepanel.js: Capture manager, chunking, provider calls, retries, exports.
 - icons
   - icon16.png
