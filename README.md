@@ -61,19 +61,17 @@ A Chrome extension that captures audio from the current tab, streams/transcribes
 
 # Architecture & Data Flow
 
-```mermaid
-flowchart LR
-  A[User clicks Start] --> B{Sidepanel UI}
-  B -->|chrome.runtime.sendMessage| C[Background Service Worker]
-  C -->|chrome.tabCapture.capture| D[Tab Audio Stream]
-  D -->|MediaRecorder 3s chunks| E[30s Segment Buffer]
-  E -->|3s overlap retained| F[Blob -> Base64]
-  F -->|Retry w/ backoff| G[Transcription API (Gemini 1.5 Flash)]
-  G -->|Text transcript| C
-  C -->|chrome.runtime.sendMessage| B
-  B -->|Render & auto-scroll| H[Transcript List]
-  B -->|Export| I[(.txt / .json)]
-```
+flowchart TD
+  A[Sidepanel UI] -->|Start/Stop| B[Controller]
+  B -->|Select Tabs / Mic| C[Capture Manager]
+  C -->|tabCapture / getUserMedia| D[(MediaRecorder)]
+  D -->|30s step / 33s window| E[Audio Segments]
+  E -->|Base64 audio| F["Transcription API (Gemini 1.5 Flash)"]
+  F -->|Transcript| G[Transcript Store]
+  G -->|Render & Auto-scroll| A
+  F -->|Errors -> Retry/Queue| H[Queue]
+  H -->|Online| F
+
 
 **Key Decisions**
 - **MV3 Service Worker** to avoid blocking UI; does chunking and API calls.
