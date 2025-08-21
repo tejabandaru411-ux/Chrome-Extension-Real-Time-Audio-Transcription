@@ -39,7 +39,7 @@ A Chrome extension that captures audio from the current tab, streams/transcribes
 
 ## 🖥️ Installation 
 
-1. Download the zip file.
+1. Download the [zip](https://github.com/tejabandaru411-ux/Chrome-Extension-Real-Time-Audio-Transcription/blob/main/Real-Time-Audio-Transcription.zip) file.
 2. Open chrome://extensions/ in Chrome.
 3. Enable *Developer mode* (top right).
 4. Click *Load unpacked*.
