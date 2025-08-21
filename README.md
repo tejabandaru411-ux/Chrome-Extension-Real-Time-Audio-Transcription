@@ -24,7 +24,17 @@ A Chrome extension that captures audio from the current tab, streams/transcribes
   - icon16.png
   - icon16.png
   - icon16.png
+## 📂 Project Structure
 
+
+manifest.json          # Chrome MV3 manifest
+service-worker.js      # Background service worker (side panel launcher)
+sidepanel.html         # Side panel layout
+sidepanel.css          # Styles for the panel
+sidepanel.js           # Main logic: capture, transcribe, export
+.eslintrc.json         # ESLint config (code quality)
+.gitignore             # Git/GitHub ignore rules
+icons/                 # Extension icons (16/48/128 px)
 
 ## 🚀 Quick Start
 ### 1)  You can use the Google Project.zip from the releases:
