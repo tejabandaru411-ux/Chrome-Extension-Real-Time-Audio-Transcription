@@ -39,12 +39,12 @@ A Chrome extension that captures audio from the current tab, streams/transcribes
 
 ## 🖥️ Installation 
 
-1. Open chrome://extensions/ in Chrome.
-2. Enable *Developer mode* (top right).
-3. Click *Load unpacked*.
-4. Select the project folder containing manifest.json.
-5. Click the extension icon in the toolbar → *Side Panel opens*.
-6. Enter your API key → *Start Recording*.
+1. Download the zip file.
+2. Open chrome://extensions/ in Chrome.
+3. Enable *Developer mode* (top right).
+4. Click *Load unpacked*.
+5. Select the unzipped version folder.
+
 
 ---
 
