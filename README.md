@@ -24,17 +24,18 @@ A Chrome extension that captures audio from the current tab, streams/transcribes
   - icon16.png
   - icon48.png
   - icon128.png
-- eslintrc.json / eslintignore / package.json: ESLint config (code quality)
+- eslintrc.json: ESLint config (code quality)
 
 ##  Configure API Key
 
-1. Open the extension side panel in Chrome.
-2. Enter your *Google Gemini API key* in the input box.
-3. Click *Save Key*. (Stored securely in chrome.storage.local).
+1. Get a **Google Gemini API Key**: [Google AI Studio](https://aistudio.google.com/apikey)
+2. Open the extension side panel in Chrome.
+3. Enter your *Google Gemini API key* in the input box.
+4. Click *Save Key*. (Stored securely in chrome.storage.local).
 
 ---
 
-## 🖥️ Installation (Local Testing)
+## 🖥️ Installation 
 
 1. Open chrome://extensions/ in Chrome.
 2. Enable *Developer mode* (top right).
@@ -48,7 +49,7 @@ A Chrome extension that captures audio from the current tab, streams/transcribes
 ## 🧪 Usage
 
 1. Open a tab with audio (YouTube / Meet).
-2. Open *TwinMind Transcriber* side panel.
+2. Open *Real time audio transcription* side panel.
 3. Choose audible tab(s), enable mic if needed.
 4. Click *Start Recording*.
 
@@ -68,7 +69,7 @@ flowchart LR
   B -->|getUserMedia| D[(Microphone)]
   C --> E[MediaRecorder 30s + 3s overlap]
   D --> E
-  E -->|Blob→Base64| F[Transcription API (Gemini)]
+  E -->|Blob→Base64| F["Transcription API (Gemini)"]
   F --> G[Transcript Store]
   G --> A
   E --> H[Pending Queue (Offline)]
@@ -93,7 +94,7 @@ flowchart LR
 - MediaRecorder: 3s timeslice; 30s segment assembly; Gemini transcription on each segment.
 - Network: Wi‑Fi, ~50 Mbps downlink.
 
-## Observations (Example — replace with your measurements)
+## Observations 
 - **CPU**: 3–7% on a 4-core laptop during active recording; brief spikes (8–12%) during base64 encode + fetch.
 - **Memory**: Stable; 20–40 MB for the extension process; 30s segment blob typically <1–3 MB (depends on codec).
 - **Latency**: API RTT 0.8–2.5s typical; transcription is near-instant once response arrives.
@@ -108,6 +109,7 @@ flowchart LR
 - Off-main-thread encode (Worklets/Workers) if using heavier transforms.
 - Option to reduce chunk size or bitrate when CPU constrained.
 - Batch export and virtualized transcript list for very long sessions.
+- Multiple language transcription.
 
 # Known Limitations & Future Work
 
