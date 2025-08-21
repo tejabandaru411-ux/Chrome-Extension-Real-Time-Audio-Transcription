@@ -22,46 +22,40 @@ A Chrome extension that captures audio from the current tab, streams/transcribes
 - sidepanel.js: Capture manager, chunking, provider calls, retries, exports.
 - icons
   - icon16.png
-  - icon16.png
-  - icon16.png
-## 📂 Project Structure
+  - icon48.png
+  - icon128.png
+- eslintrc.json / eslintignore / package.json: ESLint config (code quality)
 
+###  Configure API Key
 
-manifest.json          # Chrome MV3 manifest
-service-worker.js      # Background service worker (side panel launcher)
-sidepanel.html         # Side panel layout
-sidepanel.css          # Styles for the panel
-sidepanel.js           # Main logic: capture, transcribe, export
-.eslintrc.json         # ESLint config (code quality)
-.gitignore             # Git/GitHub ignore rules
-icons/                 # Extension icons (16/48/128 px)
-
-## 🚀 Quick Start
-### 1)  You can use the Google Project.zip from the releases:
-Download it from here.
-
-### 2) Load the Extension Locally
-1. Open **chrome://extensions** in Chrome.
-2. Enable **Developer mode** (top-right).
-3. Click **Load unpacked** and choose the \extension folder.
-
-> On first run, click the extension icon in the toolbar to open the **Side Panel**.
-
-### 3) Enter API Key
-- In the side panel, paste your **Google API Key** and click **Save Key**.
-- The key is stored in `chrome.storage.local` only on your device.
-
-### 4) Record & Transcribe
-1. Click **Refresh** under **Audible Tabs** and select the tabs you want.
-2. (Optional) Check **Include Microphone**.
-3. Click **Start Recording**.
-4. Watch transcripts appear every ~30 seconds.
-5. Use **Copy**, **Download .txt**, or **Download .json** to export.
+1. Open the extension side panel in Chrome.
+2. Enter your *Google Gemini API key* in the input box.
+3. Click *Save Key*. (Stored securely in chrome.storage.local).
 
 ---
 
-## 🧩 How It Works
+## 🖥️ Installation (Local Testing)
 
-- **Capture:** Uses `chrome.tabCapture.capture` to get audio from chosen tabs; `getUserMedia` for mic.
-- **Chunking:** Creates a new `MediaRecorder` segment every **30s**, each recording **33s** (3s overlap).
-- **Transcribe:** Sends Base64 audio to Gemini endpoint:
+1. Open chrome://extensions/ in Chrome.
+2. Enable *Developer mode* (top right).
+3. Click *Load unpacked*.
+4. Select the project folder containing manifest.json.
+5. Click the extension icon in the toolbar → *Side Panel opens*.
+6. Enter your API key → *Start Recording*.
+
+---
+
+## 🧪 Usage
+
+1. Open a tab with audio (YouTube / Meet).
+2. Open *TwinMind Transcriber* side panel.
+3. Choose audible tab(s), enable mic if needed.
+4. Click *Start Recording*.
+
+   * Transcript updates every *30s*.
+   * Queue + retry works if offline.
+   * Multiple tabs are supported.
+5. Stop recording → *Export transcript*.
+
+## Demo Video
+
