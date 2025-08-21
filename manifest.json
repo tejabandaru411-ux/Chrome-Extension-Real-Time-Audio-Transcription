@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "real-time-audio-transcription",
+  "version": "2.0.0",
+  "description": "Capture audio from one or more tabs or microphone, transcribe every 30s with 3s overlap, and show it in the side panel.",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "tabCapture",
+    "storage",
+    "sidePanel"
+  ],
+  "host_permissions": [
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "action": {
+    "default_title": "AI Transcriber"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "real-time-audio-transcription",
+  "version": "1.0.0",
+  "description": "Chrome extension that captures audio from tabs and transcribes in a side panel.",
+  "main": "service-worker.js",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "keywords": [
+    "chrome-extension",
+    "audio",
+    "transcription"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^9.0.0"
+  }
+}

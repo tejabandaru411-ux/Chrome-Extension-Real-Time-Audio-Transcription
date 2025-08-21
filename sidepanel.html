@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Transcriber</title>
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <div class="header">
+    <h1>Transcription</h1>
+    <div id="status" class="status-idle">Idle</div>
+  </div>
+
+  <div class="controls">
+    <div class="btns">
+      <button id="startBtn">Start Recording</button>
+      <button id="stopBtn" disabled>Stop</button>
+    </div>
+    <div class="timer-row">
+      <div id="timer" class="timer">00:00:00</div>
+    </div>
+  </div>
+
+  <div class="settings">
+    <label for="apiKey">Google API Key</label>
+    <input type="password" id="apiKey" placeholder="Enter Gemini API key"/>
+    <label class="mic-toggle"><input type="checkbox" id="useMic"> Include Microphone</label>
+    <button id="saveKeyBtn" class="secondary">Save Key</button>
+  </div>
+
+  <div class="tabs-picker">
+    <div class="tabs-header">
+      <span>Audible Tabs</span>
+      <button id="refreshTabs" class="tiny">Refresh</button>
+    </div>
+    <div id="tabsList" class="tabs-list">
+      <div class="placeholder">No audible tabs detected yet.</div>
+    </div>
+  </div>
+
+  <div id="transcription-display" class="transcription-container">
+    <p class="placeholder">Your transcription will appear here…</p>
+  </div>
+
+  <div class="export-controls">
+    <button id="copyBtn">Copy Transcript</button>
+    <button id="downloadTxtBtn">Download .txt</button>
+    <button id="downloadJsonBtn">Download .json</button>
+  </div>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>
