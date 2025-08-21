@@ -63,16 +63,17 @@ A Chrome extension that captures audio from the current tab, streams/transcribes
 
 ```mermaid
 flowchart LR
-  A[User clicks Start] --> B{Sidepanel UI}
-  B -->|chrome.runtime.sendMessage| C[Background Service Worker]
-  C -->|chrome.tabCapture.capture| D[Tab Audio Stream]
-  D -->|MediaRecorder 3s chunks| E[30s Segment Buffer]
-  E -->|3s overlap retained| F[Blob -> Base64]
-  F -->|Retry w/ backoff| G["Transcription API (Gemini 1.5 Flash)"]
-  G -->|Text transcript| C
-  C -->|chrome.runtime.sendMessage| B
-  B -->|Render & auto-scroll| H[Transcript List]
-  B -->|Export| I[(.txt / .json)]
+  A[Sidepanel UI] -->|Start/Stop| B[Service Worker]
+  B -->|tabCapture| C[(Tab Audio Streams)]
+  B -->|getUserMedia| D[(Microphone)]
+  C --> E[MediaRecorder 30s + 3s overlap]
+  D --> E
+  E -->|Blob→Base64| F[Transcription API (Gemini)]
+  F --> G[Transcript Store]
+  G --> A
+  E --> H[Pending Queue (Offline)]
+  H --> F
+
 ```
 
 **Key Decisions**
