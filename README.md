@@ -26,7 +26,7 @@ A Chrome extension that captures audio from the current tab, streams/transcribes
   - icon128.png
 - eslintrc.json / eslintignore / package.json: ESLint config (code quality)
 
-###  Configure API Key
+##  Configure API Key
 
 1. Open the extension side panel in Chrome.
 2. Enter your *Google Gemini API key* in the input box.
