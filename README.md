@@ -72,7 +72,7 @@ flowchart LR
   E -->|Blob→Base64| F["Transcription API (Gemini)"]
   F --> G[Transcript Store]
   G --> A
-  E --> H[Pending Queue (Offline)]
+  E --> H["Pending Queue (Offline)"]
   H --> F
 
 ```
