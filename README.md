@@ -84,3 +84,33 @@ flowchart LR
 
 **Channels / Labeling (extensible)**
 - Current build focuses on tab audio. Microphone and multi-tab capture can be added by extending capture routing and labeling logic.
+
+# Performance Report
+
+## Methodology
+- Chrome `chrome://performance` and Task Manager run during a 10-minute session on a 1080p YouTube video.
+- MediaRecorder: 3s timeslice; 30s segment assembly; Gemini transcription on each segment.
+- Network: Wi‑Fi, ~50 Mbps downlink.
+
+## Observations (Example — replace with your measurements)
+- **CPU**: 3–7% on a 4-core laptop during active recording; brief spikes (8–12%) during base64 encode + fetch.
+- **Memory**: Stable; 20–40 MB for the extension process; 30s segment blob typically <1–3 MB (depends on codec).
+- **Latency**: API RTT 0.8–2.5s typical; transcription is near-instant once response arrives.
+
+## Optimizations Implemented
+- Background worker handles processing; UI remains responsive.
+- Minimal DOM updates (append-only, auto-scroll).
+- Segment buffer cleared after send; only 3s overlap retained.
+- Exponential backoff on errors to reduce thrash.
+
+## Future Optimizations
+- Off-main-thread encode (Worklets/Workers) if using heavier transforms.
+- Option to reduce chunk size or bitrate when CPU constrained.
+- Batch export and virtualized transcript list for very long sessions.
+
+# Known Limitations & Future Work
+
+- Gemini API is *chunk-based* (not full streaming) → small delay in transcript updates.
+- Chrome requires temporary *tab activation* for audio capture across multiple tabs.
+- Very long sessions may consume browser memory — recommend exporting periodically.
+
